@@ -7,7 +7,7 @@ import UIKit
 
 class LocationCell: UITableViewCell {
 
-    // MARK: PROPERTIES
+    // MARK: OUTLETS
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet weak var photoImageView: UIImageView!

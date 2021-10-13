@@ -446,7 +446,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrailCell" rowHeight="65" id="Q5l-9X-qUn">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrailCell" rowHeight="65" id="Q5l-9X-qUn" customClass="TrailCell" customModule="MyLocations" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q5l-9X-qUn" id="lG5-mi-HzA">
@@ -473,6 +473,11 @@
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="DateLabel" destination="aWs-C1-DGO" id="AqE-0C-MbU"/>
+                                    <outlet property="DistanceLabel" destination="scc-fw-54q" id="kTk-0d-Cge"/>
+                                    <outlet property="TrailThumbnailPhoto" destination="CoK-ba-oGm" id="VWg-bZ-3ff"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -652,8 +657,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="arz-oI-htL"/>
-        <segue reference="tIK-KH-yRc"/>
+        <segue reference="DfA-9K-m4w"/>
+        <segue reference="qim-Bt-YH4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>
