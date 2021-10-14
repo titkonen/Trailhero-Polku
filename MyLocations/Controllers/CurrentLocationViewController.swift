@@ -4,7 +4,7 @@ import CoreData
 
 class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate {
 
-    // MARK: PROPERTIES
+    // MARK: PROPERTIES For Location
     let locationManager = CLLocationManager()
     var location: CLLocation? ///Storing the location
     var updatingLocation = false ///Location error handling
@@ -13,10 +13,13 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     var placemark: CLPlacemark? /// Reverse geocoding for the address
     var performingReverseGeocoding = false /// Reverse geocoding for the address
     var lastGeocodingError: Error? /// Reverse geocoding for the address
-    var timer: Timer? /// Reverse geocoding for the address
+    var timer: Timer? /// Reverse geocoding for the address // Foundation component
     var managedObjectContext: NSManagedObjectContext! /// Passing CoreData context
     
-    // MARK: OUTLETS
+    // MARK: PROPERTIES Trail Tracking
+    var seconds = 1
+    
+    // MARK: OUTLETS For Location
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
@@ -24,6 +27,31 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var tagButton: UIButton!
     @IBOutlet weak var getButton: UIButton!
 
+    // MARK: OUTLETS For Trail Tracking
+    @IBOutlet weak var timeLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var stopButton: UIButton!
+    @IBOutlet weak var saveButton: UIButton!
+    
+    // MARK: VIEW LIFE CYCLE
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        updateLabels()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+      super.viewWillAppear(animated)
+      navigationController?.isNavigationBarHidden = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+      super.viewWillDisappear(animated)
+      navigationController?.isNavigationBarHidden = false
+        
+      timer?.invalidate() // Ota myöhemmin pois?
+    }
+    
     // MARK: ACTIONS
     @IBAction func getLocation() {
         let authStatus = locationManager.authorizationStatus
@@ -49,24 +77,73 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         updateLabels()
     }
     
-    // MARK: VIEW LIFE CYCLE
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBAction func startTimePressed(_ sender: UIButton) {
+        startTracking()
+        print("start pressed!")
+    }
+    
+    @IBAction func stopTimePressed(_ sender: UIButton) {
+        stopTracking()
+        print("stop pressed!")
+    }
+    
+    @IBAction func saveTimePressed(_ sender: UIButton) {
         
-        updateLabels()
+//        let newTrails = Trails(context: self.context)
+//       // newRun.distance = distance.value
+//        newTrails.duration = Int16(seconds)
+//        newTrails.timestamp = Date()
+//        newTrails.title = "New track added"
+//
+//        self.trails.append(newTrails)
+//
+//        self.saveTrails()
+        
+        // DO - CATCH Block
+        
+        print("Save time pressed!")
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-      super.viewWillAppear(animated)
-      navigationController?.isNavigationBarHidden = true
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-      super.viewWillDisappear(animated)
-      navigationController?.isNavigationBarHidden = false
-    }
 
     // MARK: FUNCTIONS
+    func startTracking() {
+        seconds = 0
+        timer = Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) {
+            _ in self.eachSecond()
+        }
+        //distance = Measurement(value: 0, unit: UnitLength.meters)
+        //locationList.removeAll()
+        updateView()
+//        stopButton.isHidden = true
+        //startLocationUpdates()
+    }
+    
+    func stopTracking() {
+        timer?.invalidate()
+        updateView()
+        print("Tracking stopped.Invalidate")
+        //startButton.isHidden = false
+        //locationManager.stopUpdatingLocation()
+    }
+    
+    func eachSecond() {
+        seconds += 1
+        updateView()
+    }
+    
+    // ONKO TÄMÄ RESET??
+    func eachSecondStop() {
+        seconds = 0
+        updateView()
+    }
+    
+    func updateView() {
+        //let formattedDistance = FormatDisplay.distance(distance)
+        let formattedTime = FormatDisplay.time(seconds)
+        //distanceLabel.text = "Distance:  \(formattedDistance)"
+        timeLabel.text = "Time: \(formattedTime)"
+    }
+    
     func updateLabels() {
       if let location = location {
         latitudeLabel.text = String(

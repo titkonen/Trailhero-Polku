@@ -69,6 +69,37 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Time" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1gl-RD-9ha">
+                                <rect key="frame" x="52" y="368" width="311" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lrv-Uc-mg9">
+                                <rect key="frame" x="173" y="448" width="68" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Start time"/>
+                                <connections>
+                                    <action selector="startTimePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GYo-5f-8W8"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P4W-Nc-b3l">
+                                <rect key="frame" x="52" y="448" width="66" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Stop time"/>
+                                <connections>
+                                    <action selector="stopTimePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BRI-J4-qMi"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lfr-eD-p9d">
+                                <rect key="frame" x="284" y="448" width="79" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save time"/>
+                                <connections>
+                                    <action selector="saveTimePressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bLF-8i-M4w"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -106,7 +137,11 @@
                         <outlet property="latitudeLabel" destination="Jlq-Et-Rf4" id="gq0-4u-VhI"/>
                         <outlet property="longitudeLabel" destination="pGk-vp-sa6" id="53x-yO-ozO"/>
                         <outlet property="messageLabel" destination="KGn-CH-3eO" id="Wdi-eI-eqL"/>
+                        <outlet property="saveButton" destination="Lfr-eD-p9d" id="OJh-Nz-PlV"/>
+                        <outlet property="startButton" destination="Lrv-Uc-mg9" id="fAb-h1-cqf"/>
+                        <outlet property="stopButton" destination="P4W-Nc-b3l" id="Vf2-fC-4on"/>
                         <outlet property="tagButton" destination="1z6-XK-ti4" id="gAT-WA-TFD"/>
+                        <outlet property="timeLabel" destination="1gl-RD-9ha" id="WQg-2n-AvO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
