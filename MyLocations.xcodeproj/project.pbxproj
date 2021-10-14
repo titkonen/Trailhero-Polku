@@ -14,6 +14,8 @@
 		0F6E473F270D8B2700AE128A /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6E473E270D8B2700AE128A /* LocationsViewController.swift */; };
 		0F6E4742270DA7E900AE128A /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6E4741270DA7E800AE128A /* LocationCell.swift */; };
 		0F6E4744270DC4E300AE128A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6E4743270DC4E300AE128A /* MapViewController.swift */; };
+		0F9DF14027180D3E0059F659 /* Trail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DF13E27180D3E0059F659 /* Trail+CoreDataClass.swift */; };
+		0F9DF14127180D3E0059F659 /* Trail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DF13F27180D3E0059F659 /* Trail+CoreDataProperties.swift */; };
 		0FA56200270B2DB400E05316 /* Location+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA561FE270B2DB400E05316 /* Location+CoreDataClass.swift */; };
 		0FA56201270B2DB400E05316 /* Location+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA561FF270B2DB400E05316 /* Location+CoreDataProperties.swift */; };
 		0FA5717726FDE54400E608B4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FA5717626FDE54400E608B4 /* AppDelegate.swift */; };
@@ -37,6 +39,9 @@
 		0F6E473E270D8B2700AE128A /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		0F6E4741270DA7E800AE128A /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		0F6E4743270DC4E300AE128A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		0F9DF13E27180D3E0059F659 /* Trail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trail+CoreDataClass.swift"; sourceTree = "<group>"; };
+		0F9DF13F27180D3E0059F659 /* Trail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trail+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0F9DF14227180D630059F659 /* MyLocations v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MyLocations v2.xcdatamodel"; sourceTree = "<group>"; };
 		0FA561FE270B2DB400E05316 /* Location+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0FA561FF270B2DB400E05316 /* Location+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Location+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0FA5717326FDE54400E608B4 /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +125,8 @@
 		0FA5716A26FDE54400E608B4 = {
 			isa = PBXGroup;
 			children = (
+				0F9DF13E27180D3E0059F659 /* Trail+CoreDataClass.swift */,
+				0F9DF13F27180D3E0059F659 /* Trail+CoreDataProperties.swift */,
 				0FA561FE270B2DB400E05316 /* Location+CoreDataClass.swift */,
 				0FA561FF270B2DB400E05316 /* Location+CoreDataProperties.swift */,
 				0FA5717526FDE54400E608B4 /* MyLocations */,
@@ -222,8 +229,10 @@
 			files = (
 				0FD4E00D270AC59C0084735F /* CategoryPickerViewController.swift in Sources */,
 				0FA5717B26FDE54400E608B4 /* CurrentLocationViewController.swift in Sources */,
+				0F9DF14127180D3E0059F659 /* Trail+CoreDataProperties.swift in Sources */,
 				0FA5717726FDE54400E608B4 /* AppDelegate.swift in Sources */,
 				0FD4E011270B24CC0084735F /* Functions.swift in Sources */,
+				0F9DF14027180D3E0059F659 /* Trail+CoreDataClass.swift in Sources */,
 				0F6E473F270D8B2700AE128A /* LocationsViewController.swift in Sources */,
 				0FA56201270B2DB400E05316 /* Location+CoreDataProperties.swift in Sources */,
 				0F2D4B992716A986009EDB66 /* TrailCell.swift in Sources */,
@@ -442,9 +451,10 @@
 		0FA5717F26FDE54400E608B4 /* MyLocations.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				0F9DF14227180D630059F659 /* MyLocations v2.xcdatamodel */,
 				0FA5718026FDE54400E608B4 /* MyLocations.xcdatamodel */,
 			);
-			currentVersion = 0FA5718026FDE54400E608B4 /* MyLocations.xcdatamodel */;
+			currentVersion = 0F9DF14227180D630059F659 /* MyLocations v2.xcdatamodel */;
 			path = MyLocations.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
