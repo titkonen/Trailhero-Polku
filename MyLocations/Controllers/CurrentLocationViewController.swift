@@ -89,17 +89,20 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     
     @IBAction func saveTimePressed(_ sender: UIButton) {
         
-//        let newTrails = Trails(context: self.context)
-//       // newRun.distance = distance.value
-//        newTrails.duration = Int16(seconds)
-//        newTrails.timestamp = Date()
-//        newTrails.title = "New track added"
-//
-//        self.trails.append(newTrails)
-//
-//        self.saveTrails()
+        let  newTrail: Trail
+        newTrail = Trail(context: managedObjectContext)
+        newTrail.time = Double(seconds)
+        newTrail.paiva = Date()
+        newTrail.distance = Double(seconds)
+        newTrail.sportsType = "MTB"
+        newTrail.trailDescription = "Add your text here"
         
-        // DO - CATCH Block
+        do {
+            try managedObjectContext.save()
+            print("Do! succeed")
+        } catch {
+            fatalError("Error: saving content to coredata \(error)")
+        }
         
         print("Save time pressed!")
     }
