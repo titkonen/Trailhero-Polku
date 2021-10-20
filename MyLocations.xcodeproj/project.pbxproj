@@ -30,6 +30,7 @@
 		0FD4E00D270AC59C0084735F /* CategoryPickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4E00C270AC59C0084735F /* CategoryPickerViewController.swift */; };
 		0FD4E00F270B16B80084735F /* HudView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4E00E270B16B80084735F /* HudView.swift */; };
 		0FD4E011270B24CC0084735F /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FD4E010270B24CC0084735F /* Functions.swift */; };
+		0FE91FD6271E8AD400E29629 /* TrailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0FE91FD5271E8AD400E29629 /* TrailsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +60,7 @@
 		0FD4E00C270AC59C0084735F /* CategoryPickerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerViewController.swift; sourceTree = "<group>"; };
 		0FD4E00E270B16B80084735F /* HudView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HudView.swift; sourceTree = "<group>"; };
 		0FD4E010270B24CC0084735F /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		0FE91FD5271E8AD400E29629 /* TrailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +84,7 @@
 				0FD4E010270B24CC0084735F /* Functions.swift */,
 				0F6E473E270D8B2700AE128A /* LocationsViewController.swift */,
 				0F6E4743270DC4E300AE128A /* MapViewController.swift */,
+				0FE91FD5271E8AD400E29629 /* TrailsViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -249,6 +252,7 @@
 				0F348B83271404F900F5950C /* String+AddText.swift in Sources */,
 				0FD4E00F270B16B80084735F /* HudView.swift in Sources */,
 				0F10BFA92705861F00ACC6A6 /* LocationDetailsViewController.swift in Sources */,
+				0FE91FD6271E8AD400E29629 /* TrailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

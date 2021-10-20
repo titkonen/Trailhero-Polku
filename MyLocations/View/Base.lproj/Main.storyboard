@@ -475,7 +475,7 @@
         <!--Trails-->
         <scene sceneID="NvT-uk-rTX">
             <objects>
-                <tableViewController id="Vyb-rs-y47" sceneMemberID="viewController">
+                <tableViewController id="Vyb-rs-y47" customClass="TrailsViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="42F-4U-qyP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -488,15 +488,8 @@
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="65"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Distance" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scc-fw-54q">
-                                            <rect key="frame" x="82" y="33" width="123" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aWs-C1-DGO">
-                                            <rect key="frame" x="82" y="11" width="123" height="21"/>
+                                            <rect key="frame" x="82" y="11" width="193" height="21"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
@@ -506,11 +499,18 @@
                                             <rect key="frame" x="16" y="6" width="52" height="52"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         </imageView>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="TimeLabel" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uJB-u3-RbP">
+                                            <rect key="frame" x="82" y="33" width="153" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="DateLabel" destination="aWs-C1-DGO" id="AqE-0C-MbU"/>
-                                    <outlet property="DistanceLabel" destination="scc-fw-54q" id="kTk-0d-Cge"/>
+                                    <outlet property="TimeLabel" destination="uJB-u3-RbP" id="j27-0m-pqd"/>
                                     <outlet property="TrailThumbnailPhoto" destination="CoK-ba-oGm" id="VWg-bZ-3ff"/>
                                 </connections>
                             </tableViewCell>
@@ -525,7 +525,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LA4-i4-Okm" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-392.75362318840581" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-1520.289855072464" y="949.55357142857133"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Euk-C4-IK7">
@@ -542,12 +542,12 @@
                         <segue destination="wEd-9H-FKe" kind="relationship" relationship="viewControllers" id="XFR-e4-vhH"/>
                         <segue destination="flb-Ts-cpO" kind="relationship" relationship="viewControllers" id="X1D-hc-D4W"/>
                         <segue destination="SB4-l4-ced" kind="relationship" relationship="viewControllers" id="hUY-BN-Eja"/>
-                        <segue destination="Vyb-rs-y47" kind="relationship" relationship="viewControllers" id="arz-oI-htL"/>
+                        <segue destination="rZk-L9-Voe" kind="relationship" relationship="viewControllers" id="vp6-6c-3XQ"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L07-fP-Fzn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1047.8260869565217" y="138.61607142857142"/>
+            <point key="canvasLocation" x="700" y="139"/>
         </scene>
         <!--Locations-->
         <scene sceneID="fLh-SS-1sI">
@@ -672,10 +672,11 @@
             </objects>
             <point key="canvasLocation" x="138" y="919"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Trails-->
         <scene sceneID="gjc-rU-GRm">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="rZk-L9-Voe" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Trails" id="yyN-Ke-287"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kwU-tG-kOU">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -688,11 +689,10 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2cR-tZ-8gr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1304.3478260869567" y="138.61607142857142"/>
+            <point key="canvasLocation" x="-757" y="139"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="DfA-9K-m4w"/>
         <segue reference="qim-Bt-YH4"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>

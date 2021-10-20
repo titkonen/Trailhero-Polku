@@ -27,34 +27,33 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             do {
                 try context.save()
             } catch {
-                // Replace this implementation with code to handle the error appropriately.
-                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
         }
     }
     
-    // MARK: FUNCTIONS
+    // MARK: FUNCTIONS -> Handling the Tab navigation
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
-        //guard let _ = (scene as? UIWindowScene) else { return }
         
         let tabController = window!.rootViewController as! UITabBarController
          if let tabViewControllers = tabController.viewControllers {
             // First tab
              var navController = tabViewControllers[0] as! UINavigationController
-             let controller1 = navController.viewControllers.first
-                               as! CurrentLocationViewController
+             let controller1 = navController.viewControllers.first as! CurrentLocationViewController
              controller1.managedObjectContext = managedObjectContext
              // Second tab
              navController = tabViewControllers[1] as! UINavigationController
-             let controller2 = navController.viewControllers.first
-                               as! LocationsViewController
+             let controller2 = navController.viewControllers.first as! LocationsViewController
              controller2.managedObjectContext = managedObjectContext
             // Third tab
             navController = tabViewControllers[2] as! UINavigationController
             let controller3 = navController.viewControllers.first as! MapViewController
             controller3.managedObjectContext = managedObjectContext
+            // 4 tab
+            navController = tabViewControllers[3] as! UINavigationController
+            let controller4 = navController.viewControllers.first as! TrailsViewController
+            controller4.managedObjectContext = managedObjectContext
          }
         
     }
