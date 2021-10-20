@@ -16,8 +16,8 @@ class TrailsViewController: UITableViewController {
 //        key: "date",
 //        ascending: true)
 //      fetchRequest.sortDescriptors = [sortDescriptor]
-      let sort1 = NSSortDescriptor(key: "time", ascending: true)
-      let sort2 = NSSortDescriptor(key: "paiva", ascending: true)
+      let sort1 = NSSortDescriptor(key: "paiva", ascending: true)
+      let sort2 = NSSortDescriptor(key: "time", ascending: true)
       fetchRequest.sortDescriptors = [sort1, sort2]
         
       fetchRequest.fetchBatchSize = 20
