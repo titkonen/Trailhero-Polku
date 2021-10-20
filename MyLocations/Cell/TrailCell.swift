@@ -10,8 +10,9 @@ class TrailCell: UITableViewCell {
     // MARK: PROPERTIES
     lazy var paivaMuotoon: DateFormatter = {
       let formatter = DateFormatter()
-      formatter.dateStyle = .short
-      formatter.timeStyle = .medium
+      //formatter.dateStyle = .short
+      //formatter.timeStyle = .medium
+      formatter.dateFormat = "MMMM dd, YYYY HH:mm"
       return formatter
     }()
     
