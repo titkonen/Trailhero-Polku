@@ -11,11 +11,7 @@ class TrailsViewController: UITableViewController {
 
       let entity = Trail.entity()
       fetchRequest.entity = entity
-
-//      let sortDescriptor = NSSortDescriptor(
-//        key: "date",
-//        ascending: true)
-//      fetchRequest.sortDescriptors = [sortDescriptor]
+        
       let sort1 = NSSortDescriptor(key: "paiva", ascending: true)
       let sort2 = NSSortDescriptor(key: "time", ascending: true)
       fetchRequest.sortDescriptors = [sort1, sort2]
@@ -73,6 +69,21 @@ class TrailsViewController: UITableViewController {
         cell.configure2(for: trail)
 
         return cell
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+      if editingStyle == .delete {
+        let location = fetchedResultsController.object(at: indexPath)
+        location.removePhotoFile() ///Delete photoFile from the system.
+        managedObjectContext.delete(location)
+        
+        do {
+          try managedObjectContext.save()
+        } catch {
+            fatalError("Error: deleting \(error)")
+        }
+        
+      }
     }
     
     // MARK: Navigation to the TrailDetailsVC
