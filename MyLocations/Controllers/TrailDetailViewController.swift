@@ -43,7 +43,7 @@ class TrailDetailViewController: UIViewController {
         label.textColor = UIColor(red: 242/255, green: 224/255, blue: 201/255, alpha: 1)
         //label.text = dateFormatter.string(from: Date())
         label.text = "This is time !!!"
-        label.textAlignment = .right
+        label.textAlignment = .left
         return label
     }()
     
@@ -61,7 +61,7 @@ class TrailDetailViewController: UIViewController {
         //timeLabel.text = String(juoksuAika)
         //dateLabel.text = format(date: date)
         
-        view.backgroundColor = .blue
+        view.backgroundColor = .darkGray
     }
     
 //    override func viewWillAppear(_ animated: Bool) {

@@ -90,7 +90,8 @@ class TrailsViewController: UITableViewController {
       ///let rowData = self.traili[indexPath.row]
       noteDetailController.trailDataCell = rowData
       
-      navigationController?.pushViewController(noteDetailController, animated: false)
+      navigationController?.pushViewController(noteDetailController, animated: true)
+      //navigationController?.pushViewController(noteDetailController, animated: false)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {

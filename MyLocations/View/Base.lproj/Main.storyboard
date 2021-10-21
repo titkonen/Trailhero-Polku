@@ -531,7 +531,6 @@
                                     <outlet property="DateLabel" destination="aWs-C1-DGO" id="AqE-0C-MbU"/>
                                     <outlet property="TimeLabel" destination="uJB-u3-RbP" id="j27-0m-pqd"/>
                                     <outlet property="TrailThumbnailPhoto" destination="CoK-ba-oGm" id="VWg-bZ-3ff"/>
-                                    <segue destination="udZ-yN-W1g" kind="show" id="8Es-UR-8m2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
