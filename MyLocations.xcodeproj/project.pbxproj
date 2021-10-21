@@ -14,6 +14,7 @@
 		0F6E473F270D8B2700AE128A /* LocationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6E473E270D8B2700AE128A /* LocationsViewController.swift */; };
 		0F6E4742270DA7E900AE128A /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6E4741270DA7E800AE128A /* LocationCell.swift */; };
 		0F6E4744270DC4E300AE128A /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F6E4743270DC4E300AE128A /* MapViewController.swift */; };
+		0F8401792720445E00056A4E /* TrailDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F8401782720445E00056A4E /* TrailDetailViewController.swift */; };
 		0F9DF14027180D3E0059F659 /* Trail+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DF13E27180D3E0059F659 /* Trail+CoreDataClass.swift */; };
 		0F9DF14127180D3E0059F659 /* Trail+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DF13F27180D3E0059F659 /* Trail+CoreDataProperties.swift */; };
 		0F9DF14427185C880059F659 /* Formatting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F9DF14327185C880059F659 /* Formatting.swift */; };
@@ -41,6 +42,7 @@
 		0F6E473E270D8B2700AE128A /* LocationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationsViewController.swift; sourceTree = "<group>"; };
 		0F6E4741270DA7E800AE128A /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
 		0F6E4743270DC4E300AE128A /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		0F8401782720445E00056A4E /* TrailDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrailDetailViewController.swift; sourceTree = "<group>"; };
 		0F9DF13E27180D3E0059F659 /* Trail+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trail+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0F9DF13F27180D3E0059F659 /* Trail+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Trail+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0F9DF14227180D630059F659 /* MyLocations v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "MyLocations v2.xcdatamodel"; sourceTree = "<group>"; };
@@ -85,6 +87,7 @@
 				0F6E473E270D8B2700AE128A /* LocationsViewController.swift */,
 				0F6E4743270DC4E300AE128A /* MapViewController.swift */,
 				0FE91FD5271E8AD400E29629 /* TrailsViewController.swift */,
+				0F8401782720445E00056A4E /* TrailDetailViewController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -238,6 +241,7 @@
 				0F9DF14127180D3E0059F659 /* Trail+CoreDataProperties.swift in Sources */,
 				0FA5717726FDE54400E608B4 /* AppDelegate.swift in Sources */,
 				0FD4E011270B24CC0084735F /* Functions.swift in Sources */,
+				0F8401792720445E00056A4E /* TrailDetailViewController.swift in Sources */,
 				0F9DF14027180D3E0059F659 /* Trail+CoreDataClass.swift in Sources */,
 				0F6E473F270D8B2700AE128A /* LocationsViewController.swift in Sources */,
 				0FA56201270B2DB400E05316 /* Location+CoreDataProperties.swift in Sources */,

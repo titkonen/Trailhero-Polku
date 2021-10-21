@@ -2,6 +2,16 @@ import UIKit
 
 class TrailCell: UITableViewCell {
     
+    // MARK: DATACELL
+    var trailDataCell: Trail! {
+        didSet {
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "MM/dd/yy hh:mm"
+            TimeLabel.text = String(trailDataCell.time)
+            DateLabel.text = dateFormatter.string(from: trailDataCell.paiva ?? Date())
+        }
+    }
+    
     // MARK: OUTLETS
     @IBOutlet var DateLabel: UILabel!
     @IBOutlet weak var TimeLabel: UILabel!

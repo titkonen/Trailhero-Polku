@@ -2,6 +2,7 @@ import UIKit
 import CoreLocation
 import CoreData
 
+//MARK: CLASS OUTSIDE PROPERTY
 private let dateFormatter: DateFormatter = {
   let formatter = DateFormatter()
   formatter.dateStyle = .medium
@@ -35,6 +36,7 @@ class LocationDetailsViewController: UITableViewController {
       didSet {
         if let location = locationToEdit {
           descriptionText = location.locationDescription
+            print("didSet printed")
           categoryName = location.category
           date = location.date
           coordinate = CLLocationCoordinate2DMake(

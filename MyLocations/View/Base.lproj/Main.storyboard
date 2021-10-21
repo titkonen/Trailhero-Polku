@@ -472,12 +472,31 @@
             </objects>
             <point key="canvasLocation" x="138" y="1688"/>
         </scene>
+        <!--Trail Detail View Controller-->
+        <scene sceneID="pBq-Hv-Ksh">
+            <objects>
+                <viewController id="udZ-yN-W1g" customClass="TrailDetailViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="eaV-ta-jyy">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="GLT-28-ctr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="4MX-QG-dSQ"/>
+                    <connections>
+                        <segue destination="Vyb-rs-y47" kind="show" identifier="EditTrail" id="QML-g3-h6u"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="M59-MT-fUn" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2607.2463768115945" y="949.55357142857133"/>
+        </scene>
         <!--Trails-->
         <scene sceneID="NvT-uk-rTX">
             <objects>
                 <tableViewController id="Vyb-rs-y47" customClass="TrailsViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="42F-4U-qyP">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
@@ -512,6 +531,7 @@
                                     <outlet property="DateLabel" destination="aWs-C1-DGO" id="AqE-0C-MbU"/>
                                     <outlet property="TimeLabel" destination="uJB-u3-RbP" id="j27-0m-pqd"/>
                                     <outlet property="TrailThumbnailPhoto" destination="CoK-ba-oGm" id="VWg-bZ-3ff"/>
+                                    <segue destination="udZ-yN-W1g" kind="show" id="8Es-UR-8m2"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -693,7 +713,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="qim-Bt-YH4"/>
+        <segue reference="QML-g3-h6u"/>
+        <segue reference="tIK-KH-yRc"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" name="AccentColor"/>
     <resources>

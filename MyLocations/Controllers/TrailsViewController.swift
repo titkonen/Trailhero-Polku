@@ -5,6 +5,9 @@ import CoreLocation
 class TrailsViewController: UITableViewController {
     
     // MARK: PROPERTIES
+    var traili = [Trail]()
+    fileprivate let CustomCell:String = "TrailCell"
+    
     var managedObjectContext: NSManagedObjectContext!
     lazy var fetchedResultsController: NSFetchedResultsController<Trail> = {
       let fetchRequest = NSFetchRequest<Trail>()
@@ -28,6 +31,8 @@ class TrailsViewController: UITableViewController {
       return fetchedResultsController
     }()
     
+    var trailEntity = [Trail]()
+    
     // MARK: VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +48,7 @@ class TrailsViewController: UITableViewController {
         fatalError("Error: updating \(error)")
       }
     }
+    
     
     deinit {
       fetchedResultsController.delegate = nil
@@ -65,10 +71,26 @@ class TrailsViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrailCell", for: indexPath) as! TrailCell
 
-        let trail = fetchedResultsController.object(at: indexPath)
-        cell.configure2(for: trail)
+        //let trail = fetchedResultsController.object(at: indexPath)
+        //cell.configure2(for: trail)
 
+//        let rowData = self.traili[indexPath.row]
+//        cell.trailDataCell = rowData
+        
+        let trail = fetchedResultsController.object(at: indexPath)
+        cell.trailDataCell = trail
+        
         return cell
+    }
+    
+    ///Push content to DetailController
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+      let noteDetailController = TrailDetailViewController()
+      let rowData = fetchedResultsController.object(at: indexPath)
+      ///let rowData = self.traili[indexPath.row]
+      noteDetailController.trailDataCell = rowData
+      
+      navigationController?.pushViewController(noteDetailController, animated: false)
     }
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
@@ -85,10 +107,23 @@ class TrailsViewController: UITableViewController {
         
       }
     }
+
     
     // MARK: Navigation to the TrailDetailsVC
-    
-    /// ADD NAVIGATION
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//      if segue.identifier == "EditTrail" {
+//        let controller = segue.destination  as! TrailDetailViewController
+//        controller.managedObjectContext = managedObjectContext
+//
+//        if let indexPath = tableView.indexPath(
+//          for: sender as! UITableViewCell) {
+//          //let location = locations[indexPath.row]
+//            let trail = fetchedResultsController.object(at: indexPath)
+//            controller.trailToEdit = trail
+//
+//        }
+//      }
+//    }
     
     
 }
