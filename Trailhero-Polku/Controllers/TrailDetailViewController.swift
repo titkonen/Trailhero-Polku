@@ -14,14 +14,13 @@ class TrailDetailViewController: UIViewController {
         
     //MARK: PROPERTIES
     var managedObjectContext: NSManagedObjectContext! /// Passing coredata context
-    var date = Date()
+    //var date = Date()
     
     var trailDataCell: Trail! {
         didSet {
-          //distanceLabel.text = String(noteData.distance)
             durationLabel.text = String(trailDataCell.time)
-          //dateLabel.text = dateFormatter.string(from: noteData.timestamp ?? Date())
-            dateLabel2.text = format(date: date)
+            //dateLabel2.text = format(date: date)
+            dateLabel2.text = dateFormatter.string(from: trailDataCell?.paiva ?? Date())
         }
     }
     
@@ -30,7 +29,7 @@ class TrailDetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
         label.textColor = UIColor(red: 242/255, green: 224/255, blue: 201/255, alpha: 1)
-        label.text = dateFormatter.string(from: trailDataCell?.paiva ?? Date())
+        //label.text = dateFormatter.string(from: trailDataCell?.paiva ?? Date())
         //label.text = "HELLO HELLO 3"
         label.textAlignment = .left
         return label
@@ -41,13 +40,10 @@ class TrailDetailViewController: UIViewController {
         label.translatesAutoresizingMaskIntoConstraints = false
         label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
         label.textColor = UIColor(red: 242/255, green: 224/255, blue: 201/255, alpha: 1)
-        //label.text = dateFormatter.string(from: Date())
         label.text = "This is time !!!"
         label.textAlignment = .left
         return label
     }()
-    
-
     
     //MARK: VIEW LIFE CYCLE
     override func viewDidLoad() {
@@ -60,21 +56,8 @@ class TrailDetailViewController: UIViewController {
         /// Nää toimii niin, että näyttää default arvoja
         //timeLabel.text = String(juoksuAika)
         //dateLabel.text = format(date: date)
-        
         view.backgroundColor = .darkGray
     }
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//      super.viewWillAppear(animated)
-//
-//      view.backgroundColor = UIColor(red: 0/255, green: 59/255, blue: 59/255, alpha: 1)
-//      //print("viewWillAppear is loaded 2")
-//
-//      dateLabel2.text = format(date: date)
-//
-//        durationLabel.text = String(trailDataCell.time)
-//
-//    }
     
     //MARK: ACTIONS
     

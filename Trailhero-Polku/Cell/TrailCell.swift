@@ -20,8 +20,6 @@ class TrailCell: UITableViewCell {
     // MARK: PROPERTIES
     lazy var paivaMuotoon: DateFormatter = {
       let formatter = DateFormatter()
-      //formatter.dateStyle = .short
-      //formatter.timeStyle = .medium
       formatter.dateFormat = "MMMM dd, YYYY HH:mm"
       return formatter
     }()
@@ -55,11 +53,10 @@ class TrailCell: UITableViewCell {
       } else {
         TimeLabel.text = String(trail.time)
       }
-        
+
         let trailDate = trail.paiva
         DateLabel.text = paivaMuotoon.string(from: trailDate!)
 
-    
         //TrailThumbnailPhoto.image = thumbnail2(for: trail) // Calling above function "thumbnail"
     }
     

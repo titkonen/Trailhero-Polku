@@ -80,12 +80,12 @@
 			isa = PBXGroup;
 			children = (
 				0FA5717A26FDE54400E608B4 /* CurrentLocationViewController.swift */,
-				0F10BFA82705861F00ACC6A6 /* LocationDetailsViewController.swift */,
 				0FD4E00C270AC59C0084735F /* CategoryPickerViewController.swift */,
 				0FD4E00E270B16B80084735F /* HudView.swift */,
 				0FD4E010270B24CC0084735F /* Functions.swift */,
-				0F6E473E270D8B2700AE128A /* LocationsViewController.swift */,
 				0F6E4743270DC4E300AE128A /* MapViewController.swift */,
+				0F6E473E270D8B2700AE128A /* LocationsViewController.swift */,
+				0F10BFA82705861F00ACC6A6 /* LocationDetailsViewController.swift */,
 				0FE91FD5271E8AD400E29629 /* TrailsViewController.swift */,
 				0F8401782720445E00056A4E /* TrailDetailViewController.swift */,
 			);
