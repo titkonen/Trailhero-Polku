@@ -16,15 +16,15 @@ class TrailsViewController: UITableViewController {
       fetchRequest.entity = entity
         
       let sort1 = NSSortDescriptor(key: "paiva", ascending: true)
-      let sort2 = NSSortDescriptor(key: "time", ascending: true)
-      fetchRequest.sortDescriptors = [sort1, sort2]
+      //let sort2 = NSSortDescriptor(key: "time", ascending: true)
+      fetchRequest.sortDescriptors = [sort1] //, sort2
         
       fetchRequest.fetchBatchSize = 20
 
       let fetchedResultsController = NSFetchedResultsController(
         fetchRequest: fetchRequest,
         managedObjectContext: self.managedObjectContext,
-        sectionNameKeyPath: "time", /// category
+        sectionNameKeyPath: "paiva", /// category
         cacheName: "Trails")
 
       fetchedResultsController.delegate = self
