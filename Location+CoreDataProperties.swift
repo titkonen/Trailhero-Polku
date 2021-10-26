@@ -2,7 +2,6 @@ import Foundation
 import CoreData
 import CoreLocation
 
-
 extension Location {
 
     @nonobjc public class func fetchRequest() -> NSFetchRequest<Location> {

@@ -8,6 +8,7 @@
 
 import Foundation
 import CoreData
+import MapKit
 
 @objc(Trail)
 public class Trail: NSManagedObject {
@@ -30,15 +31,15 @@ public class Trail: NSManagedObject {
     }
     
     ///Photo: This property computes the full URL for the JPEG file for the photo.
-//    var photoURL: URL {
-//      assert(photoIDtrail != nil, "No photo ID set")
-//      let filename = "Photo-\(photoIDtrail!.intValue).jpg"
-//      return applicationDocumentsDirectory.appendingPathComponent(filename)
-//    }
+    var photoURL: URL {
+      assert(photoIDtrail != nil, "No photo ID set")
+      let filename = "Photo-\(photoIDtrail!.intValue).jpg"
+      return applicationDocumentsDirectory.appendingPathComponent(filename)
+    }
     
-//    var photoImage: UIImage? {
-//      return UIImage(contentsOfFile: photoURL.path)
-//    }
+    var photoImage2: UIImage? {
+      return UIImage(contentsOfFile: photoURL.path)
+    }
     
     class func nextPhotoID() -> Int {
       let userDefaults = UserDefaults.standard
@@ -50,7 +51,7 @@ public class Trail: NSManagedObject {
     func removePhotoFile() {
       if hasPhoto {
         do {
-          //try FileManager.default.removeItem(at: photoURL)
+          try FileManager.default.removeItem(at: photoURL)
         } catch {
           print("Error removing file: \(error)")
         }

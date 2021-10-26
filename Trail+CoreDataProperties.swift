@@ -8,7 +8,7 @@
 
 import Foundation
 import CoreData
-
+import CoreLocation
 
 extension Trail {
 
@@ -19,9 +19,9 @@ extension Trail {
     @NSManaged public var paiva: Date?
     @NSManaged public var time: Double
     @NSManaged public var distance: Double
-    @NSManaged public var photoIDtrail: Int32
-    @NSManaged public var sportsType: String?
-    @NSManaged public var trailDescription: String?
+    @NSManaged public var photoIDtrail: NSNumber? /// For photo
+    @NSManaged public var sportsType: String? /// In location this is not optional ?
+    @NSManaged public var trailDescription: String? /// In location this is not optional ?
 
 }
 

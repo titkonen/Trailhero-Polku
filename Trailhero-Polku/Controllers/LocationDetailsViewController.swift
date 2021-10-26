@@ -111,7 +111,7 @@ class LocationDetailsViewController: UITableViewController {
         location.placemark = placemark
         
         
-        // Save image
+        // MARK: Save image
         if let image = image {
           // 1
           if !location.hasPhoto {

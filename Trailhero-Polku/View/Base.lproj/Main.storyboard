@@ -12,7 +12,7 @@
         <!--Current Location View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="CurrentLocationViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="CurrentLocationViewController" customModule="Trailhero_Polku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -151,7 +151,7 @@
         <!--Tag Location-->
         <scene sceneID="vGT-Qw-qfW">
             <objects>
-                <tableViewController id="rp8-SJ-g4m" customClass="LocationDetailsViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="rp8-SJ-g4m" customClass="LocationDetailsViewController" customModule="Trailhero_Polku" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="onDrag" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" id="63G-jF-tJs">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -388,7 +388,7 @@
         <!--Category Picker View Controller-->
         <scene sceneID="kZK-KZ-4Wl">
             <objects>
-                <tableViewController id="VYb-Yb-43Q" customClass="CategoryPickerViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="VYb-Yb-43Q" customClass="CategoryPickerViewController" customModule="Trailhero_Polku" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="44g-xS-HsE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -430,7 +430,7 @@
         <!--Map-->
         <scene sceneID="Uld-o5-b6b">
             <objects>
-                <viewController id="6Z9-Cr-OhZ" customClass="MapViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="6Z9-Cr-OhZ" customClass="MapViewController" customModule="Trailhero_Polku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dSS-Gl-2nn">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -475,7 +475,7 @@
         <!--Trail Detail View Controller-->
         <scene sceneID="pBq-Hv-Ksh">
             <objects>
-                <viewController id="udZ-yN-W1g" customClass="TrailDetailViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="udZ-yN-W1g" customClass="TrailDetailViewController" customModule="Trailhero_Polku" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="eaV-ta-jyy">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -494,13 +494,13 @@
         <!--Trails-->
         <scene sceneID="NvT-uk-rTX">
             <objects>
-                <tableViewController id="Vyb-rs-y47" customClass="TrailsViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Vyb-rs-y47" customClass="TrailsViewController" customModule="Trailhero_Polku" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="42F-4U-qyP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrailCell" rowHeight="65" id="Q5l-9X-qUn" customClass="TrailCell" customModule="MyLocations" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TrailCell" rowHeight="65" id="Q5l-9X-qUn" customClass="TrailCell" customModule="Trailhero_Polku" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Q5l-9X-qUn" id="lG5-mi-HzA">
@@ -571,13 +571,13 @@
         <!--Locations-->
         <scene sceneID="fLh-SS-1sI">
             <objects>
-                <tableViewController id="kVK-bp-NEf" customClass="LocationsViewController" customModule="MyLocations" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="kVK-bp-NEf" customClass="LocationsViewController" customModule="Trailhero_Polku" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ooa-xa-xNE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="65" id="Im7-88-3FZ" customClass="LocationCell" customModule="MyLocations" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LocationCell" rowHeight="65" id="Im7-88-3FZ" customClass="LocationCell" customModule="Trailhero_Polku" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="24.5" width="414" height="65"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Im7-88-3FZ" id="Hog-LB-N4x">
