@@ -70,29 +70,37 @@ class TrailsViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TrailCell", for: indexPath) as! TrailCell
-
-        //let trail = fetchedResultsController.object(at: indexPath)
-        //cell.configure2(for: trail)
-
-//        let rowData = self.traili[indexPath.row]
-//        cell.trailDataCell = rowData
         
         let trail = fetchedResultsController.object(at: indexPath)
-        cell.trailDataCell = trail
-        
+        cell.configure2(for: trail)
         return cell
     }
     
     ///Push content to DetailController
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-      let noteDetailController = TrailDetailViewController()
-      let rowData = fetchedResultsController.object(at: indexPath)
-      ///let rowData = self.traili[indexPath.row]
-      noteDetailController.trailDataCell = rowData
+        let noteDetailController = TrailDetailViewController()
+        noteDetailController.managedObjectContext = managedObjectContext
       
-      navigationController?.pushViewController(noteDetailController, animated: true)
-      //navigationController?.pushViewController(noteDetailController, animated: false)
+        let trail = fetchedResultsController.object(at: indexPath)
+        noteDetailController.trailToEdit = trail
+
+        navigationController?.pushViewController(noteDetailController, animated: true)
+
     }
+
+    // MARK: Navigation to the TrailDetailsVC
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+      if segue.identifier == "EditTrail" {
+        let controller = segue.destination  as! TrailDetailViewController
+        controller.managedObjectContext = managedObjectContext
+
+        if let indexPath = tableView.indexPath(
+          for: sender as! UITableViewCell) {
+            let trail = fetchedResultsController.object(at: indexPath)
+            controller.trailToEdit = trail
+        }
+      }
+    }*/
     
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
       if editingStyle == .delete {
@@ -110,21 +118,7 @@ class TrailsViewController: UITableViewController {
     }
 
     
-    // MARK: Navigation to the TrailDetailsVC
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//      if segue.identifier == "EditTrail" {
-//        let controller = segue.destination  as! TrailDetailViewController
-//        controller.managedObjectContext = managedObjectContext
-//
-//        if let indexPath = tableView.indexPath(
-//          for: sender as! UITableViewCell) {
-//          //let location = locations[indexPath.row]
-//            let trail = fetchedResultsController.object(at: indexPath)
-//            controller.trailToEdit = trail
-//
-//        }
-//      }
-//    }
+
     
     
 }

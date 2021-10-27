@@ -3,14 +3,14 @@ import UIKit
 class TrailCell: UITableViewCell {
     
     // MARK: DATACELL
-    var trailDataCell: Trail! {
+    /*var trailDataCell: Trail! {
         didSet {
             let dateFormatter = DateFormatter()
             dateFormatter.dateFormat = "MM/dd/yy hh:mm"
             TimeLabel.text = String(trailDataCell.time)
             DateLabel.text = dateFormatter.string(from: trailDataCell.paiva ?? Date())
         }
-    }
+    }*/
     
     // MARK: OUTLETS
     @IBOutlet var DateLabel: UILabel!
@@ -39,12 +39,12 @@ class TrailCell: UITableViewCell {
     
     // MARK: FUNCTIONS
     /// You should read this if statement as, “if the trail has a photo, and I can unwrap trail.photoImage, then return the unwrapped image.”
-//    func thumbnail2(for trail: Trail) -> UIImage {
-//      if trail.hasPhoto, let image = trail.photoImage {
-//        return image.resized(withBounds: CGSize(width: 52, height: 52)) ///This needs UIImage+Resize.swift
-//      }
-//      return UIImage()
-//    }
+    func thumbnail2(for trail: Trail) -> UIImage {
+        if trail.hasPhoto, let image = trail.photoImage2 {
+            return image.resized(withBounds: CGSize(width: 52, height: 52)) ///This needs UIImage+Resize.swift
+        }
+        return UIImage()
+    }
     
     // MARK: - Helper Method -> ACTUAL CELL CONTENT
     func configure2(for trail: Trail) {
@@ -57,7 +57,8 @@ class TrailCell: UITableViewCell {
         let trailDate = trail.paiva
         DateLabel.text = paivaMuotoon.string(from: trailDate!)
 
-        //TrailThumbnailPhoto.image = thumbnail2(for: trail) // Calling above function "thumbnail"
+        TrailThumbnailPhoto.image = thumbnail2(for: trail) // Calling above function "thumbnail"
+        TrailThumbnailPhoto.backgroundColor = .red
     }
     
     

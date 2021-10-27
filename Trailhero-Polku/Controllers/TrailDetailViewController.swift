@@ -14,22 +14,22 @@ class TrailDetailViewController: UIViewController {
     //MARK: OUTLETS
     //MARK: PROPERTIES
     var managedObjectContext: NSManagedObjectContext! /// Passing coredata context
-    //var date = Date()
+    var date = Date()
+    var image: UIImage?
     
-    var trailDataCell: Trail! {
+    /*var trailDataCell: Trail! {
         didSet {
             durationLabel.text = String(trailDataCell.time)
             //dateLabel2.text = format(date: date)
             dateLabel2.text = dateFormatter.string(from: trailDataCell?.paiva ?? Date())
         }
-    }
-    var image: UIImage? /// Photo property
+    }*/
     
     var trailToEdit: Trail? {
         didSet {
             if let traili = trailToEdit {
-                durationLabel.text = String(trailDataCell.time)
-                dateLabel2.text = dateFormatter.string(from: trailDataCell?.paiva ?? Date())
+                durationLabel.text = "loppuaika" /// durationLabel.text = String(trailDataCell.time)
+                dateLabel2.text = dateFormatter.string(from: traili.paiva ?? Date())///dateFormatter.string(from: trailDataCell?.paiva ?? Date())
             }
         }
     }
@@ -84,7 +84,7 @@ class TrailDetailViewController: UIViewController {
         print("View Did load")
         view.backgroundColor = .gray
 
-        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .camera, target: self, action: #selector(cameraButtonPressed))
+        navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
         
         addPhotoButton.addTarget(self, action: #selector(addPhotoButtonPressed), for: .touchUpInside)
         
@@ -109,37 +109,45 @@ class TrailDetailViewController: UIViewController {
        // tableView.reloadData()
     }
     
-    /// IBACTION FUNC DONE = SAVE
-    /// Saves the content of the view
-    /// Saves image
     
-    /// IBACTION FUNC CANCEL
-    /// Will return to tableList view
-    ///
-    
-    
-    
-    //MARK: FUNCTIONS
+    //MARK: @objc FUNCTIONS
     @objc func addPhotoButtonPressed() {
         print("addPhotoButtonPressed")
         pickPhoto()
-//        let picker = UIImagePickerController()
-//        picker.delegate = self
-//        picker.allowsEditing = true
-//        picker.sourceType = .photoLibrary
-//        present(picker, animated: true)
     }
     
-    @objc func cameraButtonPressed() {
-        print("cameraButtonPressed")
-        pickPhoto()
-//        let picker = UIImagePickerController()
-//        picker.delegate = self
-//        picker.allowsEditing = true
-//        picker.sourceType = .photoLibrary
-//        present(picker, animated: true)
+    @objc func doneButtonPressed() {
+        print("doneButtonPressed")
+        //let location = Location
+        
+        // MARK: Save image
+        if let traili = trailToEdit {
+            
+            if let image = image {
+              
+              if !traili.hasPhoto {
+                  traili.photoIDtrail = Trail.nextPhotoID() as NSNumber
+              }
+              // 2
+              if let data = image.jpegData(compressionQuality: 0.5) {
+                // 3
+                do {
+                  try data.write(to: traili.photoURL, options: .atomic)
+                    print("writing succeed")
+                } catch {
+                  print("Error writing file: \(error)")
+                }
+              }
+            }
+
+            
+        }
+        
+       
+        
     }
     
+    //MARK: FUNCTIONS
     fileprivate func setupUI() {
         view.addSubview(dateLabel2)
         view.addSubview(durationLabel)
