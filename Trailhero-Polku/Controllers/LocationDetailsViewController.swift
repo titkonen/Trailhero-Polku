@@ -116,6 +116,7 @@ class LocationDetailsViewController: UITableViewController {
           // 1
           if !location.hasPhoto {
             location.photoID = Location.nextPhotoID() as NSNumber
+            print("New nextPhotoID writed")
           }
           // 2
           if let data = image.jpegData(compressionQuality: 0.5) {

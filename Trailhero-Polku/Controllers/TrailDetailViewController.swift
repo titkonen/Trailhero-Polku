@@ -12,6 +12,42 @@ private let dateFormatter: DateFormatter = {
 class TrailDetailViewController: UIViewController {
  
     //MARK: OUTLETS
+    //MARK: UI FILEPRIVATE PROPERTIES
+    fileprivate lazy var dateLabel2: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        label.textColor = UIColor(red: 242/255, green: 224/255, blue: 201/255, alpha: 1)
+        label.textAlignment = .left
+        return label
+    }()
+    
+    fileprivate lazy var durationLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
+        label.textColor = UIColor(red: 242/255, green: 224/255, blue: 201/255, alpha: 1)
+        label.text = "This is time !!!"
+        label.textAlignment = .left
+        return label
+    }()
+    
+    fileprivate lazy var addPhotoButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Add Photo", for: .normal)
+        button.setTitleColor(.blue, for: .normal)
+        button.frame = CGRect(x: 15, y: 450, width: 100, height: 50)
+        return button
+    }()
+    
+    fileprivate lazy var trailImageView: UIImageView = {
+        let kuvapaikka = UIImageView()
+        kuvapaikka.backgroundColor = .gray
+        kuvapaikka.frame = CGRect(x: 32, y: 230, width: 320, height: 200)
+        kuvapaikka.layer.cornerRadius = 12
+        return kuvapaikka
+    }()
+    
     //MARK: PROPERTIES
     var managedObjectContext: NSManagedObjectContext! /// Passing coredata context
     var date = Date()
@@ -27,72 +63,29 @@ class TrailDetailViewController: UIViewController {
     
     var trailToEdit: Trail? {
         didSet {
-            if let traili = trailToEdit {
+            if let trail = trailToEdit {
                 durationLabel.text = "loppuaika" /// durationLabel.text = String(trailDataCell.time)
-                dateLabel2.text = dateFormatter.string(from: traili.paiva ?? Date())///dateFormatter.string(from: trailDataCell?.paiva ?? Date())
+                dateLabel2.text = dateFormatter.string(from: trail.paiva ?? Date())///dateFormatter.string(from: trailDataCell?.paiva ?? Date())
             }
         }
     }
-    
-    //MARK: UI FILEPRIVATE PROPERTIES
-    fileprivate lazy var dateLabel2: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        label.textColor = UIColor(red: 242/255, green: 224/255, blue: 201/255, alpha: 1)
-        //label.text = dateFormatter.string(from: trailDataCell?.paiva ?? Date())
-        //label.text = "HELLO HELLO 3"
-        label.textAlignment = .left
-        return label
-    }()
-    
-    fileprivate lazy var durationLabel: UILabel = {
-        let label = UILabel()
-        label.translatesAutoresizingMaskIntoConstraints = false
-        label.font = UIFont.systemFont(ofSize: 24, weight: .semibold)
-        label.textColor = UIColor(red: 242/255, green: 224/255, blue: 201/255, alpha: 1)
-        label.text = "This is time !!!"
-        label.textAlignment = .left
-        return label
-    }()
-    
-    /// Works as add photo button
-    fileprivate lazy var addPhotoButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Add Photo", for: .normal)
-        button.setTitleColor(.blue, for: .normal)
-        button.frame = CGRect(x: 15, y: 450, width: 100, height: 50)
-
-        return button
-    }()
-    
-    fileprivate lazy var trailImageView: UIImageView = {
-        let kuvapaikka = UIImageView()
-        kuvapaikka.backgroundColor = .gray
-        kuvapaikka.frame = CGRect(x: 32, y: 230, width: 320, height: 200)
-        kuvapaikka.layer.cornerRadius = 12
-        return kuvapaikka
-    }()
-    
-    
     
     //MARK: VIEW LIFE CYCLE
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupUI()
-        print("View Did load")
-        view.backgroundColor = .gray
+        view.backgroundColor = .black
 
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doneButtonPressed))
         
         addPhotoButton.addTarget(self, action: #selector(addPhotoButtonPressed), for: .touchUpInside)
         
-        if let traili = trailToEdit {
-            title = "Edit Traili"
+        if let trail = trailToEdit {
+            title = "Edit trail"
             /// IF there is photo -> Show photo
-            if traili.hasPhoto {
-              if let theImage = traili.photoImage2 {
+            if trail.hasPhoto {
+              if let theImage = trail.photoImage2 {
                 show(image: theImage)
               }
             }
@@ -109,7 +102,6 @@ class TrailDetailViewController: UIViewController {
        // tableView.reloadData()
     }
     
-    
     //MARK: @objc FUNCTIONS
     @objc func addPhotoButtonPressed() {
         print("addPhotoButtonPressed")
@@ -118,32 +110,51 @@ class TrailDetailViewController: UIViewController {
     
     @objc func doneButtonPressed() {
         print("doneButtonPressed")
-        //let location = Location
         
-        // MARK: Save image
-        if let traili = trailToEdit {
-            
-            if let image = image {
-              
-              if !traili.hasPhoto {
-                  traili.photoIDtrail = Trail.nextPhotoID() as NSNumber
-              }
-              // 2
-              if let data = image.jpegData(compressionQuality: 0.5) {
-                // 3
-                do {
-                  try data.write(to: traili.photoURL, options: .atomic)
-                    print("writing succeed")
-                } catch {
-                  print("Error writing file: \(error)")
-                }
-              }
-            }
-
-            
+        guard let mainView = navigationController?.parent?.view else {
+            return
         }
         
-       
+        let hudView = HudView.hud(inView: mainView, animated: true)
+        
+        let trail: Trail
+        if let temp = trailToEdit {
+          hudView.text = "Updated"
+            trail = temp
+        } else {
+          hudView.text = "Tagged"
+            trail = Trail(context: managedObjectContext)
+            trail.photoIDtrail = nil /// Need to be so it won't overwrite when saving photo.
+        }
+        
+        // MARK: Save image
+        if let image = image {
+          // 1
+          if !trail.hasPhoto {
+              trail.photoIDtrail = Trail.nextPhotoID() as NSNumber
+            print("New nextPhotoIDtrail writed")
+          }
+          // 2
+          if let data = image.jpegData(compressionQuality: 0.5) {
+            // 3
+            do {
+              try data.write(to: trail.photoURLtrail, options: .atomic)
+                print("writing succeed")
+            } catch {
+              print("Error writing file: \(error)")
+            }
+          }
+        }
+        
+        do {
+            try managedObjectContext.save()
+            afterDelay(0.6) {
+              hudView.hide()
+              self.navigationController?.popViewController(animated: true)
+            }
+          } catch {
+            fatalError("Error: saving content to coredata \(error)")
+        }
         
     }
     

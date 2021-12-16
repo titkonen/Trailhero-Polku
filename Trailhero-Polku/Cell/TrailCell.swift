@@ -52,13 +52,16 @@ class TrailCell: UITableViewCell {
         TimeLabel.text = "(No Time)"
       } else {
         TimeLabel.text = String(trail.time)
+          let trailDate = trail.paiva
+          DateLabel.text = paivaMuotoon.string(from: trailDate!)
+          
       }
 
-        let trailDate = trail.paiva
-        DateLabel.text = paivaMuotoon.string(from: trailDate!)
-
+        
         TrailThumbnailPhoto.image = thumbnail2(for: trail) // Calling above function "thumbnail"
-        TrailThumbnailPhoto.backgroundColor = .red
+        TrailThumbnailPhoto.backgroundColor = .darkGray
+        
+        
     }
     
     
